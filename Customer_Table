@@ -1,0 +1,30 @@
+<?
+	session_start();
+	require_once('Connect.php');
+	
+	$result = mysqli_query($conn,"SELECT * FROM customers");
+	$row_count = mysqli_num_rows($result);
+	
+	if(!$result)
+	{
+		echo "<script>alert('unable to retreive data');</script>";
+	}else
+	{
+			$table = "<table>";
+		if($row_count < 1)
+		{
+				$table += "<tr><td>No records in table</td></tr>"
+		}else
+		{
+			$table += "<tr><th>Customer Id</th><th>Email</th><th>Password</th><th>First Name</th><th>Surname</th><th>Cell Number</th></tr>"
+			for($i =0; $i < $row_count; $i++)
+			{
+				$row = mysqli_fetch_array($result);
+				 $row['Name'];
+			}
+		}
+	}
+	
+	
+
+?>
